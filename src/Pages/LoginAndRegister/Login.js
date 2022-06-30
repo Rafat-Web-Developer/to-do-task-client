@@ -26,7 +26,7 @@ const Login = () => {
   }
 
   if (user) {
-    navigate("/");
+    navigate("/home");
   }
 
   const onSubmit = async (data) => {

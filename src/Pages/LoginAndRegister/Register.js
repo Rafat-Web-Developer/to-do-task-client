@@ -26,7 +26,7 @@ const Register = () => {
   }
 
   if (user) {
-    navigate("/");
+    navigate("/home");
   }
 
   const onSubmit = async (data) => {

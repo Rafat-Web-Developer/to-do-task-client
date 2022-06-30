@@ -14,7 +14,8 @@ function App() {
       <Navbar></Navbar>
       <main className="container my-4">
         <Routes>
-          <Route path="/" element={<Home></Home>}></Route>
+          <Route path="/" element={<Login></Login>}></Route>
+          <Route path="/home" element={<Home></Home>}></Route>
           <Route
             path="/completedTask"
             element={<CompletedTask></CompletedTask>}
