@@ -1,14 +1,16 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { signOut } from "firebase/auth";
 import auth from "../../firebase.init";
 
 const Navbar = () => {
   const [user] = useAuthState(auth);
+  const navigate = useNavigate();
 
   const handleLogout = () => {
     signOut(auth);
+    navigate("/login");
   };
 
   return (
