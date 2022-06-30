@@ -3,6 +3,7 @@
 import { Routes, Route } from "react-router-dom";
 import CompletedTask from "./Pages/CompletedTask/CompletedTask";
 import Home from "./Pages/Home/Home";
+import Login from "./Pages/LoginAndRegister/Login";
 import Navbar from "./Pages/shared/Navbar";
 import ToDo from "./Pages/ToDo/ToDo";
 
@@ -18,6 +19,7 @@ function App() {
             element={<CompletedTask></CompletedTask>}
           ></Route>
           <Route path="/todo" element={<ToDo></ToDo>}></Route>
+          <Route path="/login" element={<Login></Login>}></Route>
         </Routes>
       </main>
     </>
