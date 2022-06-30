@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
+import Loading from "../shared/Loading";
 
 const Register = () => {
   const {
@@ -15,9 +16,9 @@ const Register = () => {
 
   const navigate = useNavigate();
 
-  // if (loading) {
-  //   return <Loading></Loading>;
-  // }
+  if (loading) {
+    return <Loading></Loading>;
+  }
 
   let errorMessage;
   if (error) {
@@ -25,7 +26,7 @@ const Register = () => {
   }
 
   if (user) {
-    navigate("/hello-gas/admin/dashboard");
+    navigate("/");
   }
 
   const onSubmit = async (data) => {
