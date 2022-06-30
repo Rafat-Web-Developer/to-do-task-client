@@ -1,6 +1,7 @@
 // import './App.css';
 
 import { Routes, Route } from "react-router-dom";
+import RequireAuth from "./Pages/Auth/RequireAuth";
 import CompletedTask from "./Pages/CompletedTask/CompletedTask";
 import Home from "./Pages/Home/Home";
 import Login from "./Pages/LoginAndRegister/Login";
@@ -15,12 +16,30 @@ function App() {
       <main className="container my-4">
         <Routes>
           <Route path="/" element={<Login></Login>}></Route>
-          <Route path="/home" element={<Home></Home>}></Route>
+          <Route
+            path="/home"
+            element={
+              <RequireAuth>
+                <Home></Home>
+              </RequireAuth>
+            }
+          ></Route>
           <Route
             path="/completedTask"
-            element={<CompletedTask></CompletedTask>}
+            element={
+              <RequireAuth>
+                <CompletedTask></CompletedTask>
+              </RequireAuth>
+            }
           ></Route>
-          <Route path="/todo" element={<ToDo></ToDo>}></Route>
+          <Route
+            path="/todo"
+            element={
+              <RequireAuth>
+                <ToDo></ToDo>
+              </RequireAuth>
+            }
+          ></Route>
           <Route path="/login" element={<Login></Login>}></Route>
           <Route path="/register" element={<Register></Register>}></Route>
         </Routes>
