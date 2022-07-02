@@ -1,12 +1,12 @@
 import React from "react";
 import Task from "./Task";
 
-const Tasks = () => {
+const Tasks = ({ tasks }) => {
   return (
     <div>
-      <Task></Task>
-      <Task></Task>
-      <Task></Task>
+      {tasks?.map((task) => (
+        <Task key={task._id} task={task}></Task>
+      ))}
     </div>
   );
 };

@@ -1,18 +1,35 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-const Task = () => {
+const Task = ({ task }) => {
+  const navigate = useNavigate();
+  const handleCompleteTask = (id) => {
+    fetch(`http://localhost:5000/completeTask/${id}`, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        navigate("/completedTask");
+      });
+  };
   return (
-    <div class="card my-2 shadow-lg">
-      <div class="row card-body">
+    <div className="card my-2 shadow-lg">
+      <div className="row card-body">
         <div className="col-7 col-md-10">
-          <p>
-            This is some text within a card
-            bodysdfsdfsdfsdfsdfsdfsdfsdfsdfsdf.asdasdasd
-          </p>
+          <p>{task.task}</p>
         </div>
         <div className="col-5 text-end col-md-2">
-          <button className="btn btn-sm btn-primary me-2">Edit</button>
-          <button className="btn btn-sm btn-danger">Delete</button>
+          {/* <button className="btn btn-sm btn-primary me-2">Edit</button> */}
+          <button
+            className="btn btn-sm btn-danger"
+            onClick={() => handleCompleteTask(task._id)}
+          >
+            Complete
+          </button>
         </div>
       </div>
     </div>

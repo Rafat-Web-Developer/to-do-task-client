@@ -3,20 +3,24 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import auth from "../../firebase.init";
 
-const ToDoInput = () => {
+const ToDoInput = ({ handleSubmitData }) => {
   const [user] = useAuthState(auth);
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
 
   const onSubmit = async (data) => {
     const task = {
       task: data.task,
       email: user?.email,
+      status: 0,
     };
-    console.log(task);
+    // console.log(task);
+    handleSubmitData(task);
+    reset();
   };
 
   return (
@@ -25,10 +29,10 @@ const ToDoInput = () => {
         onSubmit={handleSubmit(onSubmit)}
         className="d-flex justify-content-center"
       >
-        <div class="input-group mb-3 w-75">
+        <div className="input-group mb-3 w-75">
           <input
             type="text"
-            class="form-control"
+            className="form-control"
             placeholder="Enter Task Title"
             aria-label="Enter Task Title"
             aria-describedby="button-addon2"
@@ -40,7 +44,7 @@ const ToDoInput = () => {
             })}
           />
 
-          <button class="btn btn-success" type="submit" id="button-addon2">
+          <button className="btn btn-success" type="submit" id="button-addon2">
             Enter
           </button>
         </div>

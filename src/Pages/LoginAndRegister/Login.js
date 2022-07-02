@@ -40,13 +40,13 @@ const Login = () => {
         <div className="card-header">Login Form</div>
         <div className="card-body">
           <form onSubmit={handleSubmit(onSubmit)}>
-            <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">
+            <div className="mb-3">
+              <label for="exampleInputEmail1" className="form-label">
                 Email address
               </label>
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="exampleInputEmail1"
                 aria-describedby="emailHelp"
                 {...register("email", {
@@ -64,13 +64,13 @@ const Login = () => {
                 )}
               </label>
             </div>
-            <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">
+            <div className="mb-3">
+              <label for="exampleInputPassword1" className="form-label">
                 Password
               </label>
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="exampleInputPassword1"
                 {...register("password", {
                   required: {
@@ -97,7 +97,7 @@ const Login = () => {
               </Link>
             </p>
             {errorMessage}
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" className="btn btn-primary">
               Submit
             </button>
           </form>
