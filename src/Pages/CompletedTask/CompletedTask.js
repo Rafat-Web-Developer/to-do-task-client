@@ -7,7 +7,9 @@ const CompletedTask = () => {
   const [user] = useAuthState(auth);
   const [tasks, setTasks] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/completedTasks/${user?.email}`)
+    fetch(
+      `https://multicultural-eds-93037.herokuapp.com/completedTasks/${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }, []);

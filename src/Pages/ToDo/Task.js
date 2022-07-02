@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Task = ({ task }) => {
   const navigate = useNavigate();
   const handleCompleteTask = (id) => {
-    fetch(`http://localhost:5000/completeTask/${id}`, {
+    fetch(`https://multicultural-eds-93037.herokuapp.com/completeTask/${id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

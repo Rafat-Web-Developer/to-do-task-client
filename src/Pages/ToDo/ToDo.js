@@ -8,21 +8,24 @@ const ToDo = () => {
   const [user] = useAuthState(auth);
   const [tasks, setTasks] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/tasks/${user?.email}`)
+    fetch(`https://multicultural-eds-93037.herokuapp.com/tasks/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setTasks(data));
   }, []);
 
   const handleSubmitData = async (task) => {
-    const response = await fetch(`http://localhost:5000/tasks`, {
-      method: "POST",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(task),
-    });
+    const response = await fetch(
+      `https://multicultural-eds-93037.herokuapp.com/tasks`,
+      {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(task),
+      }
+    );
     const result2 = await response.json();
-    fetch(`http://localhost:5000/tasks/${user?.email}`)
+    fetch(`https://multicultural-eds-93037.herokuapp.com/tasks/${user?.email}`)
       .then((res) => res.json())
       .then((data) => setTasks(data));
   };
